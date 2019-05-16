@@ -1,11 +1,26 @@
 from rx import Observable, Observer
 from zeep import Client
 from datetime import datetime, date, time, timedelta
-
+import xml.etree.ElementTree as ET
 
 wsdl = 'https://www.recargasyservicios.com/demo/transact.asmx?wsdl'
 client = Client(wsdl=wsdl)
 
+def saldo(usuario, password):
+  def defer():
+    try:
+       ini = datetime.today()
+       resp = client.service.GetBalance(usuario,password)
+       fin = datetime.today()
+       delta = fin - ini
+       print (ini.strftime('Inicio: %H:%M:%S Tiempo de ejecucion : ') + str(delta.seconds) +   ' segundos -  GetBalance')
+       tree = ET.ElementTree(ET.fromstring(resp))
+       monto = tree.find("balance").text
+       print (monto)
+       return Observable.just( (monto))
+    except:
+       return Observable.just( (None))
+  return Observable.defer(defer)
 
 def requestId(usuario, password):
   def defer():

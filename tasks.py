@@ -17,7 +17,7 @@ def sum(x,y):
 
 @app.task
 def recarga(compania,plan,numero,monto):
-  result = recargaCelular('Demo','RS1234','040100001','5560217769',10).to_blocking().first()
+  result = recargaCelular('Demo','RS1234',plan,numero,monto).to_blocking().first()
   print ("1..respuesta final desde tarea")
   print (result)
   jsonString = json.dumps(result)
