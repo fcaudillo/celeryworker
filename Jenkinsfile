@@ -16,9 +16,10 @@
        }    
    }
    
+   
    stage('Deploy a produccion') {
-       sh "docker-compose stop celeryworker"
-       sh "docker-compose up -d --no-deps --build celeryworker"
+       sh "cd main && docker-compose stop celeryworker"
+       sh "cd main && docker-compose up -d --no-deps --build celeryworker"
    }
 
 }
