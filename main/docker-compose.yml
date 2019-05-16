@@ -4,7 +4,3 @@ services:
   celeryworker:
     image: fcaudillo/celeryreload
     hostname: celeryworker
-    depends_on:
-      - rabbitmq
-    links:
-      - rabbitmq:rabbitmq
