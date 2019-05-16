@@ -1,0 +1,57 @@
+Codigo desde el cliente
+
+>>> from kombu import Exchange, Queue
+>>> app = Celery('cliente',backend='rpc://', broker='amqp://guest@localhost:5672//')
+>>> app.conf.taskqueues= ( Queue('rutauno',Exchange('abc'), routing_key='sumar.#'
+... , queue_arguments={'x-max-priority':10}),
+... Queue('ruta33',routing_key='cuenta.#'))
+
+docker build -t fcaudillo/celeryreload
+
+
+ docker run -p 15672:15672 -p 5671-5672:5671-5672   -d --hostname my-rabbit --name some-rabbit rabbitmq:3-management
+ 
+ Codigo en el cliente
+ en elcliente esta tasks.py y celeryconfig.py
+from celery import Celery
+
+from tasks import sum
+result = sum.apply_async([100,23],queue='celeryx')
+
+app = Celery('cliente',backend='rpc://', broker='amqp://guest@172.17.0.2:5672//')
+conn = app.pool.acquire()
+
+from kombu import Exchange, Queue
+import datetime
+
+task_exchange = Exchange('tasks', type='direct')
+task_queues = [Queue('hipri', task_exchange, routing_key='hipri'),
+               Queue('midpri', task_exchange, routing_key='midpri'),
+               Queue('lopri', task_exchange, routing_key='lopri')]
+
+
+
+El Servidor de celery se tiene que ejecuta asi.
+celery -A tasks worker --loglevel=info -Q celeryx
+
+with Connection('amqp://guest@localhost:5672//') as conn:
+  with conn.channel() as channel:
+    producer = Producer(channel)
+    producer.publish({'hola':'mundo'})}
+	
+	
+	
+>>> from kombu import Exchange, Queue, Producer
+>>> task_queue = Queue('tasksx', Exchange('tasksx'), routing_key='tasksx')
+>>> conn = Connection('amqp://guest@localhost:5672//')
+>>> channel =  conn.channel()
+>>> producer = Producer(channel)
+>>> producer.publish({'hola':'mundo'})
+<promise@0x1be1c9e0cc0>
+>>> producer.publish({'hola':'mundo'},exchange=task_queue.exchange,routing_key=task_queue.routing_key,declare=[task_queue])
+producer.publish({'hola':'mundo'},exchange='tasksx',routing_key='tasksx')
+
+
+
+
+

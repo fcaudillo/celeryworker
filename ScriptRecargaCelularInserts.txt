@@ -1,0 +1,346 @@
+from precios.models import TipoMovimiento, Movimiento, Categoria, Compania, Plan, Producto,Categoria
+import datetime
+
+
+Compania.objects.all().delete()
+
+Compania.objects.create(codigo='TELCE',description='TELCEL',imagen='telcel.png', comision=6)
+Compania.objects.create(codigo='MOVIS',description='MOVISTAR ',imagen='movistar.png', comision=6)
+Compania.objects.create(codigo='UNEFO',description='UNEFON ',imagen='unefon.png', comision=6)
+Compania.objects.create(codigo='ATT',description='ATT ',imagen='att.png', comision=6)
+Compania.objects.create(codigo='NEXTE',description='NEXTEL ',imagen='nextel.png', comision=6)
+Compania.objects.create(codigo='MAZTI',description='MAZTIEMPO  ',imagen='maztiempo.png', comision=6)
+Compania.objects.create(codigo='VIRGI',description='VIRGIN ',imagen='virgin.png', comision=6)
+Compania.objects.create(codigo='ALO',description='ALO ',imagen='alo.png', comision=6)
+Compania.objects.create(codigo='CIERT',description='CIERTO',imagen='cierto.png', comision=6)
+Compania.objects.create(codigo='FLASH',description='FLASH',imagen='flash.png', comision=6)
+Compania.objects.create(codigo='SIMPA',description='SIMPATI',imagen='simpati.png', comision=6)
+
+telcel = Compania.objects.filter(codigo='TELCE')[0]
+movistar = Compania.objects.filter(codigo='MOVIS')[0]
+unefon = Compania.objects.filter(codigo='UNEFO')[0]
+att = Compania.objects.filter(codigo='ATT')[0]
+nextel = Compania.objects.filter(codigo='NEXTE')[0]
+maztiempo = Compania.objects.filter(codigo='MAZTI')[0]
+virgin = Compania.objects.filter(codigo='VIRGI')[0]
+alo = Compania.objects.filter(codigo='ALO')[0]
+cierto = Compania.objects.filter(codigo='CIERT')[0]
+flash = Compania.objects.filter(codigo='FLASH')[0]
+simpati = Compania.objects.filter(codigo='SIMPA')[0]
+
+Categoria.objects.create(codigo='UNK', description='Raiz')
+raiz = Categoria.objects.filter(codigo='UNK')[0]
+Categoria.objects.create(codigo='TLA', description='TLAPALERIA', parent = raiz)
+Categoria.objects.create(codigo='PAP', description='PAPELERIA', parent = raiz)
+Categoria.objects.create(codigo='BELL', description='BELLEZA', parent = raiz)
+Categoria.objects.create(codigo='TAE', description='Recarga de tiempo aire', parent = raiz)
+
+cat_tae = Categoria.objects.filter(codigo='TAE')[0]
+
+Producto.objects.create(barcode='TEL10',codigoproveedor='010100001', description = 'Telcel 10', precioCompra=10,precioVenta=11,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TEL20',codigoproveedor='010200001', description = 'Telcel 20', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TEL30',codigoproveedor='010300001', description = 'Telcel 30', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TEL50',codigoproveedor='010500001', description = 'Telcel 50', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TEL80',codigoproveedor='010800001', description = 'Telcel 80', precioCompra=80,precioVenta=81,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TEL100',codigoproveedor='011000001', description = 'Telcel 100', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TEL150',codigoproveedor='011500001', description = 'Telcel 150', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TEL200',codigoproveedor='012000001', description = 'Telcel 200', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TEL300',codigoproveedor='013000001', description = 'Telcel 300', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='ALO10',codigoproveedor='0903000000010A', description = 'Alo 10', precioCompra=10,precioVenta=11,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ALO20',codigoproveedor='0903000000020A', description = 'Alo 20', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ALO30',codigoproveedor='0903000000030A', description = 'Alo 30', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ALO50',codigoproveedor='0903000000050A', description = 'Alo 50', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ALO100',codigoproveedor='0903000000100A', description = 'Alo 100', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ALO150',codigoproveedor='0903000000150A', description = 'Alo 150', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ALO200',codigoproveedor='0903000000200A', description = 'Alo 200', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ALO300',codigoproveedor='0903000000300A', description = 'Alo 300', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='ATT10',codigoproveedor='040100001', description = 'ATT 10', precioCompra=10,precioVenta=11,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ATT20',codigoproveedor='040200001', description = 'ATT 20', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ATT30',codigoproveedor='040300001', description = 'ATT 30', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ATT50',codigoproveedor='040500001', description = 'ATT 50', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ATT55',codigoproveedor='040550001', description = 'ATT 55', precioCompra=55,precioVenta=56,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ATT100',codigoproveedor='041000001', description = 'ATT 100', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ATT150',codigoproveedor='041500001', description = 'ATT 150', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ATT200',codigoproveedor='042000001', description = 'ATT 200', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='ATT300',codigoproveedor='043000001', description = 'ATT 300', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='NEX20',codigoproveedor='060200001ac', description = 'Nextel 20', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='NEX30',codigoproveedor='060300001ac', description = 'Nextel 30', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='NEX50',codigoproveedor='060500001ac', description = 'Nextel 50', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='NEX100',codigoproveedor='061000001ac', description = 'Nextel 100', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='NEX200',codigoproveedor='062000001ac', description = 'Nextel 200', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='TIE20',codigoproveedor='0900000000020A', description = 'TIEMPO_AIRE CIERTO $20 pesos', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TIE30',codigoproveedor='0900000000030A', description = 'TIEMPO_AIRE CIERTO $30 pesos', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TIE50',codigoproveedor='0900000000050A', description = 'TIEMPO_AIRE CIERTO $50 pesos', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TIE100',codigoproveedor='0900000000100A', description = 'TIEMPO_AIRE CIERTO $100 pesos', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TIE200',codigoproveedor='0900000000200A', description = 'TIEMPO_AIRE CIERTO $200 pesos', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+
+Producto.objects.create(barcode='MAZ120',codigoproveedor='0902000000120A', description = 'TIEMPO_AIRE MAZTIEMPO $120 pesos', precioCompra=120,precioVenta=121,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MAZ150',codigoproveedor='0902000000150A', description = 'TIEMPO_AIRE MAZTIEMPO $150 pesos', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MAZ200',codigoproveedor='0902000000200A', description = 'TIEMPO_AIRE MAZTIEMPO $200 pesos', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MAZ300',codigoproveedor='0902000000300A', description = 'TIEMPO_AIRE MAZTIEMPO $300 pesos', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='MOV10',codigoproveedor='020100001', description = 'Movi 10', precioCompra=10,precioVenta=11,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV20',codigoproveedor='020200001', description = 'Movi 20', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV30',codigoproveedor='020300001', description = 'Movi 30', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV40',codigoproveedor='020400001', description = 'Movi 40', precioCompra=40,precioVenta=41,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV50',codigoproveedor='020500001', description = 'Movi 50', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV60',codigoproveedor='020600001', description = 'Movi 60', precioCompra=60,precioVenta=61,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV70',codigoproveedor='020700001', description = 'Movi 70', precioCompra=70,precioVenta=71,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV80',codigoproveedor='020800001', description = 'Movi 80', precioCompra=80,precioVenta=81,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV100',codigoproveedor='021000001', description = 'Movi 100', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV120',codigoproveedor='021200001', description = 'Movi 120', precioCompra=120,precioVenta=121,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV150',codigoproveedor='021500001', description = 'Movi 150', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV200',codigoproveedor='022000001', description = 'Movi 200', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV250',codigoproveedor='022500001', description = 'Movi 250', precioCompra=250,precioVenta=251,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV300',codigoproveedor='023000001', description = 'Movi 300', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='UNE10',codigoproveedor='060100001', description = 'UNEFON 10', precioCompra=10,precioVenta=11,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='UNE20',codigoproveedor='060200001', description = 'UNEFON 20', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='UNE30',codigoproveedor='060300001', description = 'UNEFON 30', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='UNE50',codigoproveedor='060500001', description = 'UNEFON 50', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='UNE70',codigoproveedor='060700001', description = 'UNEFON 70', precioCompra=70,precioVenta=71,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='UNE100',codigoproveedor='061000001', description = 'UNEFON 100', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='UNE150',codigoproveedor='061500001', description = 'UNEFON 150', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='UNE200',codigoproveedor='062000001', description = 'UNEFON 200', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='UNE300',codigoproveedor='063000001', description = 'UNEFON 300', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='VIR20',codigoproveedor='030000000020A', description = 'TIEMPO_AIRE VIRGIN $20 pesos', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='VIR30',codigoproveedor='030000000030A', description = 'TIEMPO_AIRE VIRGIN $30 pesos', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='VIR40',codigoproveedor='030000000040A', description = 'TIEMPO_AIRE VIRGIN $40 pesos', precioCompra=40,precioVenta=41,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='VIR50',codigoproveedor='030000000050A', description = 'TIEMPO_AIRE VIRGIN $50 pesos', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='VIR100',codigoproveedor='030000000100A', description = 'TIEMPO_AIRE VIRGIN $100 pesos', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='VIR150',codigoproveedor='030000000150A', description = 'TIEMPO_AIRE VIRGIN $150 pesos', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='VIR200',codigoproveedor='030000000200A', description = 'TIEMPO_AIRE VIRGIN $200 pesos', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='VIR300',codigoproveedor='030000000300A', description = 'TIEMPO_AIRE VIRGIN $300 pesos', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+Producto.objects.create(barcode='FLA10',codigoproveedor='090600010', description = 'FLASHMOBILE $10.00', precioCompra=10,precioVenta=11,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA20',codigoproveedor='090600020', description = 'FLASHMOBILE $20.00', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA30',codigoproveedor='090600030', description = 'FLASHMOBILE $30.00', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA40',codigoproveedor='090600040', description = 'FLASHMOBILE $40.00', precioCompra=40,precioVenta=41,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA50',codigoproveedor='090600050', description = 'FLASHMOBILE $50.00', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA60',codigoproveedor='090600060', description = 'FLASHMOBILE $60.00', precioCompra=60,precioVenta=61,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA70',codigoproveedor='090600070', description = 'FLASHMOBILE $70.00', precioCompra=70,precioVenta=71,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA80',codigoproveedor='090600080', description = 'FLASHMOBILE $80.00', precioCompra=80,precioVenta=81,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA100',codigoproveedor='090600100', description = 'FLASHMOBILE $100.00', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA120',codigoproveedor='090600120', description = 'FLASHMOBILE $120.00', precioCompra=120,precioVenta=121,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA150',codigoproveedor='090600150', description = 'FLASHMOBILE $150.00', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA200',codigoproveedor='090600200', description = 'FLASHMOBILE $200.00', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA250',codigoproveedor='090600250', description = 'FLASHMOBILE $250.00', precioCompra=250,precioVenta=251,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='FLA300',codigoproveedor='090600300', description = 'FLASHMOBILE $300.00', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+Producto.objects.create(barcode='SIM20',codigoproveedor='090700020', description = 'TIEMPO_AIRE SIMPATI $20 pesos', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='SIM40',codigoproveedor='090700040', description = 'TIEMPO_AIRE SIMPATI $40 pesos', precioCompra=40,precioVenta=41,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='SIM50',codigoproveedor='090700050', description = 'TIEMPO_AIRE SIMPATI $50 pesos', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='SIM60',codigoproveedor='090700060', description = 'TIEMPO_AIRE SIMPATI $60 pesos', precioCompra=60,precioVenta=61,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='SIM90',codigoproveedor='090700090', description = 'TIEMPO_AIRE SIMPATI $90 pesos', precioCompra=90,precioVenta=91,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='SIM100',codigoproveedor='090700100', description = 'TIEMPO_AIRE SIMPATI $100 pesos', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='SIM120',codigoproveedor='090700120', description = 'TIEMPO_AIRE SIMPATI $120 pesos', precioCompra=120,precioVenta=121,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='SIM150',codigoproveedor='090700150', description = 'TIEMPO_AIRE SIMPATI $150 pesos', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='SIM300',codigoproveedor='090700300', description = 'TIEMPO_AIRE SIMPATI $300 pesos', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='TELPA20',codigoproveedor='PA20', description = 'Amigo Sin Limite. $20.00', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELPA30',codigoproveedor='PA30', description = 'Amigo Sin Limite. $30.00', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELPA50',codigoproveedor='PA50', description = 'Amigo Sin Limite. $50.00', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELPA80',codigoproveedor='PA80', description = 'Amigo Sin Limite. $80.00', precioCompra=80,precioVenta=81,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELPA100',codigoproveedor='PA100', description = 'Amigo Sin Limite. $100.00', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELPA150',codigoproveedor='PA150', description = 'Amigo Sin Limite. $150.00', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELPA200',codigoproveedor='PA200', description = 'Amigo Sin Limite. $200.00', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELPA300',codigoproveedor='PA300', description = 'Amigo Sin Limite. $300.00', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELPA500',codigoproveedor='PA500', description = 'Amigo Sin Limite. $500.00', precioCompra=500,precioVenta=501,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt20',codigoproveedor='Int20', description = 'Internet 50MB. $20.00', precioCompra=20,precioVenta=21,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt30',codigoproveedor='Int30', description = 'Internet 100MB. $30.00', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELILIM30',codigoproveedor='ILIM30', description = 'Megas Ilimitados 1 Hora $30.00', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt50',codigoproveedor='Int50', description = 'Internet 200MB. $50.00', precioCompra=50,precioVenta=51,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt80',codigoproveedor='Int80', description = 'Internet 400MB. $80.00', precioCompra=80,precioVenta=81,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt100',codigoproveedor='Int100', description = 'Internet 600MB. $100.00', precioCompra=100,precioVenta=101,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt150',codigoproveedor='Int150', description = 'Internet 1 GB. $150.00', precioCompra=150,precioVenta=151,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt200',codigoproveedor='Int200', description = 'Internet 1.5 GB. $200.00', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt300',codigoproveedor='Int300', description = 'Internet 2.5 GB. $300.00', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='TELInt500',codigoproveedor='Int500', description = 'Internet 5 GB. $500.00', precioCompra=500,precioVenta=501,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Producto.objects.create(barcode='MOV0210',codigoproveedor='MINT0010', description = 'Internet 1 dias 35MB + 1GB WA $10', precioCompra=10,precioVenta=11,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV0230',codigoproveedor='MINT0030', description = 'Internet 3 dias 100 MB + 1GB WA TW y FB. $30.00', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV0260',codigoproveedor='MINT0060', description = 'Internet 7 dias 200 MB + 1GB WA TW y FB. $60.00', precioCompra=60,precioVenta=61,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV0280',codigoproveedor='MINT0080', description = 'Internet 15 dias 450 MB + 1GB WA TW y FB. $80.00', precioCompra=80,precioVenta=81,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV02120',codigoproveedor='MINT0120', description = 'Internet 21 dias 750 MB + 1GB WA TW y FB. $120.00', precioCompra=120,precioVenta=121,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV02200',codigoproveedor='MINT0200', description = 'Internet 30 dias 1.5GB + 1GB WA TW y FB. $200.00', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV02300',codigoproveedor='MINT0300', description = 'Internet 30 dias 3GB + 1GB WA TW y FB. $300.00', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV0310',codigoproveedor='002001000010INT', description = 'Internet 1 dia 40MB + Navegacion libre. $10.00', precioCompra=10,precioVenta=11,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV0330',codigoproveedor='002001000030INT', description = 'Internet 3 Dia 140MB + Navegacion libre. $30.00', precioCompra=30,precioVenta=31,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV0360',codigoproveedor='002001000060INT', description = 'Internet 7 Dias 300MB + Navegacion libre. $60.00', precioCompra=60,precioVenta=61,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV0380',codigoproveedor='002001000080INT', description = 'Internet 15 Dias 600MB + Navegacion libre $80.00', precioCompra=80,precioVenta=81,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV03120',codigoproveedor='002001000120INT', description = 'Internet 21 Dias 1GB + Navegacion libre. $120.00', precioCompra=120,precioVenta=121,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV03200',codigoproveedor='002001000200INT', description = 'Internet 30 Dias 2GB + Navegacion libre. $200.00', precioCompra=200,precioVenta=201,categoria=cat_tae, falta = datetime.datetime.now())
+Producto.objects.create(barcode='MOV03300',codigoproveedor='002001000300INT', description = 'Internet 30 Dias 4GB + Navegacion libre. $300.00', precioCompra=300,precioVenta=301,categoria=cat_tae, falta = datetime.datetime.now())
+
+
+Plan.objects.create(plan='010100001',description='Telcel 10',monto=10,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL10')[0])
+Plan.objects.create(plan='010200001',description='Telcel 20',monto=20,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL20')[0])
+Plan.objects.create(plan='010300001',description='Telcel 30',monto=30,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL30')[0])
+Plan.objects.create(plan='010500001',description='Telcel 50',monto=50,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL50')[0])
+Plan.objects.create(plan='010800001',description='Telcel 80',monto=80,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL80')[0])
+Plan.objects.create(plan='011000001',description='Telcel 100',monto=100,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL100')[0])
+Plan.objects.create(plan='011500001',description='Telcel 150',monto=150,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL150')[0])
+Plan.objects.create(plan='012000001',description='Telcel 200',monto=200,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL200')[0])
+Plan.objects.create(plan='013000001',description='Telcel 300',monto=300,tipoplan=0,compania=telcel,producto=Producto.objects.filter(barcode='TEL300')[0])
+
+
+Plan.objects.create(plan='0903000000010A',description='Alo 10',monto=10,tipoplan=0,compania=alo,producto=Producto.objects.filter(barcode='ALO10')[0])
+Plan.objects.create(plan='0903000000020A',description='Alo 20',monto=20,tipoplan=0,compania=alo,producto=Producto.objects.filter(barcode='ALO20')[0])
+Plan.objects.create(plan='0903000000030A',description='Alo 30',monto=30,tipoplan=0,compania=alo,producto=Producto.objects.filter(barcode='ALO30')[0])
+Plan.objects.create(plan='0903000000050A',description='Alo 50',monto=50,tipoplan=0,compania=alo,producto=Producto.objects.filter(barcode='ALO50')[0])
+Plan.objects.create(plan='0903000000100A',description='Alo 100',monto=100,tipoplan=0,compania=alo,producto=Producto.objects.filter(barcode='ALO100')[0])
+Plan.objects.create(plan='0903000000150A',description='Alo 150',monto=150,tipoplan=0,compania=alo,producto=Producto.objects.filter(barcode='ALO150')[0])
+Plan.objects.create(plan='0903000000200A',description='Alo 200',monto=200,tipoplan=0,compania=alo,producto=Producto.objects.filter(barcode='ALO200')[0])
+Plan.objects.create(plan='0903000000300A',description='Alo 300',monto=300,tipoplan=0,compania=alo,producto=Producto.objects.filter(barcode='ALO300')[0])
+
+
+Plan.objects.create(plan='040100001',description='ATT 10',monto=10,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT10')[0])
+Plan.objects.create(plan='040200001',description='ATT 20',monto=20,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT20')[0])
+Plan.objects.create(plan='040300001',description='ATT 30',monto=30,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT30')[0])
+Plan.objects.create(plan='040500001',description='ATT 50',monto=50,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT50')[0])
+Plan.objects.create(plan='040550001',description='ATT 55',monto=55,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT55')[0])
+Plan.objects.create(plan='041000001',description='ATT 100',monto=100,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT100')[0])
+Plan.objects.create(plan='041500001',description='ATT 150',monto=150,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT150')[0])
+Plan.objects.create(plan='042000001',description='ATT 200',monto=200,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT200')[0])
+Plan.objects.create(plan='043000001',description='ATT 300',monto=300,tipoplan=0,compania=att,producto=Producto.objects.filter(barcode='ATT300')[0])
+
+
+Plan.objects.create(plan='060200001ac',description='Nextel 20',monto=20,tipoplan=0,compania=nextel,producto=Producto.objects.filter(barcode='NEX20')[0])
+Plan.objects.create(plan='060300001ac',description='Nextel 30',monto=30,tipoplan=0,compania=nextel,producto=Producto.objects.filter(barcode='NEX30')[0])
+Plan.objects.create(plan='060500001ac',description='Nextel 50',monto=50,tipoplan=0,compania=nextel,producto=Producto.objects.filter(barcode='NEX50')[0])
+Plan.objects.create(plan='061000001ac',description='Nextel 100',monto=100,tipoplan=0,compania=nextel,producto=Producto.objects.filter(barcode='NEX100')[0])
+Plan.objects.create(plan='062000001ac',description='Nextel 200',monto=200,tipoplan=0,compania=nextel,producto=Producto.objects.filter(barcode='NEX200')[0])
+
+
+Plan.objects.create(plan='0900000000020A',description='TIEMPO_AIRE CIERTO $20 pesos',monto=20,tipoplan=0,compania=cierto,producto=Producto.objects.filter(barcode='TIE20')[0])
+Plan.objects.create(plan='0900000000030A',description='TIEMPO_AIRE CIERTO $30 pesos',monto=30,tipoplan=0,compania=cierto,producto=Producto.objects.filter(barcode='TIE30')[0])
+Plan.objects.create(plan='0900000000050A',description='TIEMPO_AIRE CIERTO $50 pesos',monto=50,tipoplan=0,compania=cierto,producto=Producto.objects.filter(barcode='TIE50')[0])
+Plan.objects.create(plan='0900000000100A',description='TIEMPO_AIRE CIERTO $100 pesos',monto=100,tipoplan=0,compania=cierto,producto=Producto.objects.filter(barcode='TIE100')[0])
+Plan.objects.create(plan='0900000000200A',description='TIEMPO_AIRE CIERTO $200 pesos',monto=200,tipoplan=0,compania=cierto,producto=Producto.objects.filter(barcode='TIE200')[0])
+
+
+
+Plan.objects.create(plan='0902000000120A',description='TIEMPO_AIRE MAZTIEMPO $120 pesos',monto=120,tipoplan=0,compania=maztiempo,producto=Producto.objects.filter(barcode='MAZ120')[0])
+Plan.objects.create(plan='0902000000150A',description='TIEMPO_AIRE MAZTIEMPO $150 pesos',monto=150,tipoplan=0,compania=maztiempo,producto=Producto.objects.filter(barcode='MAZ150')[0])
+Plan.objects.create(plan='0902000000200A',description='TIEMPO_AIRE MAZTIEMPO $200 pesos',monto=200,tipoplan=0,compania=maztiempo,producto=Producto.objects.filter(barcode='MAZ200')[0])
+Plan.objects.create(plan='0902000000300A',description='TIEMPO_AIRE MAZTIEMPO $300 pesos',monto=300,tipoplan=0,compania=maztiempo,producto=Producto.objects.filter(barcode='MAZ300')[0])
+
+
+Plan.objects.create(plan='020100001',description='Movi 10',monto=10,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV10')[0])
+Plan.objects.create(plan='020200001',description='Movi 20',monto=20,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV20')[0])
+Plan.objects.create(plan='020300001',description='Movi 30',monto=30,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV30')[0])
+Plan.objects.create(plan='020400001',description='Movi 40',monto=40,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV40')[0])
+Plan.objects.create(plan='020500001',description='Movi 50',monto=50,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV50')[0])
+Plan.objects.create(plan='020600001',description='Movi 60',monto=60,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV60')[0])
+Plan.objects.create(plan='020700001',description='Movi 70',monto=70,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV70')[0])
+Plan.objects.create(plan='020800001',description='Movi 80',monto=80,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV80')[0])
+Plan.objects.create(plan='021000001',description='Movi 100',monto=100,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV100')[0])
+Plan.objects.create(plan='021200001',description='Movi 120',monto=120,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV120')[0])
+Plan.objects.create(plan='021500001',description='Movi 150',monto=150,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV150')[0])
+Plan.objects.create(plan='022000001',description='Movi 200',monto=200,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV200')[0])
+Plan.objects.create(plan='022500001',description='Movi 250',monto=250,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV250')[0])
+Plan.objects.create(plan='023000001',description='Movi 300',monto=300,tipoplan=0,compania=movistar,producto=Producto.objects.filter(barcode='MOV300')[0])
+
+
+Plan.objects.create(plan='060100001',description='UNEFON 10',monto=10,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE10')[0])
+Plan.objects.create(plan='060200001',description='UNEFON 20',monto=20,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE20')[0])
+Plan.objects.create(plan='060300001',description='UNEFON 30',monto=30,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE30')[0])
+Plan.objects.create(plan='060500001',description='UNEFON 50',monto=50,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE50')[0])
+Plan.objects.create(plan='060700001',description='UNEFON 70',monto=70,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE70')[0])
+Plan.objects.create(plan='061000001',description='UNEFON 100',monto=100,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE100')[0])
+Plan.objects.create(plan='061500001',description='UNEFON 150',monto=150,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE150')[0])
+Plan.objects.create(plan='062000001',description='UNEFON 200',monto=200,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE200')[0])
+Plan.objects.create(plan='063000001',description='UNEFON 300',monto=300,tipoplan=0,compania=unefon,producto=Producto.objects.filter(barcode='UNE300')[0])
+
+
+Plan.objects.create(plan='030000000020A',description='TIEMPO_AIRE VIRGIN $20 pesos',monto=20,tipoplan=0,compania=virgin,producto=Producto.objects.filter(barcode='VIR20')[0])
+Plan.objects.create(plan='030000000030A',description='TIEMPO_AIRE VIRGIN $30 pesos',monto=30,tipoplan=0,compania=virgin,producto=Producto.objects.filter(barcode='VIR30')[0])
+Plan.objects.create(plan='030000000040A',description='TIEMPO_AIRE VIRGIN $40 pesos',monto=40,tipoplan=0,compania=virgin,producto=Producto.objects.filter(barcode='VIR40')[0])
+Plan.objects.create(plan='030000000050A',description='TIEMPO_AIRE VIRGIN $50 pesos',monto=50,tipoplan=0,compania=virgin,producto=Producto.objects.filter(barcode='VIR50')[0])
+Plan.objects.create(plan='030000000100A',description='TIEMPO_AIRE VIRGIN $100 pesos',monto=100,tipoplan=0,compania=virgin,producto=Producto.objects.filter(barcode='VIR100')[0])
+Plan.objects.create(plan='030000000150A',description='TIEMPO_AIRE VIRGIN $150 pesos',monto=150,tipoplan=0,compania=virgin,producto=Producto.objects.filter(barcode='VIR150')[0])
+Plan.objects.create(plan='030000000200A',description='TIEMPO_AIRE VIRGIN $200 pesos',monto=200,tipoplan=0,compania=virgin,producto=Producto.objects.filter(barcode='VIR200')[0])
+Plan.objects.create(plan='030000000300A',description='TIEMPO_AIRE VIRGIN $300 pesos',monto=300,tipoplan=0,compania=virgin,producto=Producto.objects.filter(barcode='VIR300')[0])
+
+Plan.objects.create(plan='090600010',description='FLASHMOBILE $10.00',monto=10,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA10')[0])
+Plan.objects.create(plan='090600020',description='FLASHMOBILE $20.00',monto=20,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA20')[0])
+Plan.objects.create(plan='090600030',description='FLASHMOBILE $30.00',monto=30,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA30')[0])
+Plan.objects.create(plan='090600040',description='FLASHMOBILE $40.00',monto=40,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA40')[0])
+Plan.objects.create(plan='090600050',description='FLASHMOBILE $50.00',monto=50,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA50')[0])
+Plan.objects.create(plan='090600060',description='FLASHMOBILE $60.00',monto=60,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA60')[0])
+Plan.objects.create(plan='090600070',description='FLASHMOBILE $70.00',monto=70,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA70')[0])
+Plan.objects.create(plan='090600080',description='FLASHMOBILE $80.00',monto=80,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA80')[0])
+Plan.objects.create(plan='090600100',description='FLASHMOBILE $100.00',monto=100,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA100')[0])
+Plan.objects.create(plan='090600120',description='FLASHMOBILE $120.00',monto=120,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA120')[0])
+Plan.objects.create(plan='090600150',description='FLASHMOBILE $150.00',monto=150,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA150')[0])
+Plan.objects.create(plan='090600200',description='FLASHMOBILE $200.00',monto=200,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA200')[0])
+Plan.objects.create(plan='090600250',description='FLASHMOBILE $250.00',monto=250,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA250')[0])
+Plan.objects.create(plan='090600300',description='FLASHMOBILE $300.00',monto=300,tipoplan=0,compania=flash,producto=Producto.objects.filter(barcode='FLA300')[0])
+
+Plan.objects.create(plan='090700020',description='TIEMPO_AIRE SIMPATI $20 pesos',monto=20,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM20')[0])
+Plan.objects.create(plan='090700040',description='TIEMPO_AIRE SIMPATI $40 pesos',monto=40,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM40')[0])
+Plan.objects.create(plan='090700050',description='TIEMPO_AIRE SIMPATI $50 pesos',monto=50,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM50')[0])
+Plan.objects.create(plan='090700060',description='TIEMPO_AIRE SIMPATI $60 pesos',monto=60,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM60')[0])
+Plan.objects.create(plan='090700090',description='TIEMPO_AIRE SIMPATI $90 pesos',monto=90,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM90')[0])
+Plan.objects.create(plan='090700100',description='TIEMPO_AIRE SIMPATI $100 pesos',monto=100,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM100')[0])
+Plan.objects.create(plan='090700120',description='TIEMPO_AIRE SIMPATI $120 pesos',monto=120,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM120')[0])
+Plan.objects.create(plan='090700150',description='TIEMPO_AIRE SIMPATI $150 pesos',monto=150,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM150')[0])
+Plan.objects.create(plan='090700300',description='TIEMPO_AIRE SIMPATI $300 pesos',monto=300,tipoplan=0,compania=simpati,producto=Producto.objects.filter(barcode='SIM300')[0])
+
+
+Plan.objects.create(plan='PA20',description='Amigo Sin Limite. $20.00',monto=20,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA20')[0])
+Plan.objects.create(plan='PA30',description='Amigo Sin Limite. $30.00',monto=30,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA30')[0])
+Plan.objects.create(plan='PA50',description='Amigo Sin Limite. $50.00',monto=50,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA50')[0])
+Plan.objects.create(plan='PA80',description='Amigo Sin Limite. $80.00',monto=80,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA80')[0])
+Plan.objects.create(plan='PA100',description='Amigo Sin Limite. $100.00',monto=100,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA100')[0])
+Plan.objects.create(plan='PA150',description='Amigo Sin Limite. $150.00',monto=150,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA150')[0])
+Plan.objects.create(plan='PA200',description='Amigo Sin Limite. $200.00',monto=200,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA200')[0])
+Plan.objects.create(plan='PA300',description='Amigo Sin Limite. $300.00',monto=300,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA300')[0])
+Plan.objects.create(plan='PA500',description='Amigo Sin Limite. $500.00',monto=500,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELPA500')[0])
+Plan.objects.create(plan='Int20',description='Internet 50MB. $20.00',monto=20,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt20')[0])
+Plan.objects.create(plan='Int30',description='Internet 100MB. $30.00',monto=30,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt30')[0])
+Plan.objects.create(plan='ILIM30',description='Megas Ilimitados 1 Hora $30.00',monto=30,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELILIM30')[0])
+Plan.objects.create(plan='Int50',description='Internet 200MB. $50.00',monto=50,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt50')[0])
+Plan.objects.create(plan='Int80',description='Internet 400MB. $80.00',monto=80,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt80')[0])
+Plan.objects.create(plan='Int100',description='Internet 600MB. $100.00',monto=100,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt100')[0])
+Plan.objects.create(plan='Int150',description='Internet 1 GB. $150.00',monto=150,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt150')[0])
+Plan.objects.create(plan='Int200',description='Internet 1.5 GB. $200.00',monto=200,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt200')[0])
+Plan.objects.create(plan='Int300',description='Internet 2.5 GB. $300.00',monto=300,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt300')[0])
+Plan.objects.create(plan='Int500',description='Internet 5 GB. $500.00',monto=500,tipoplan=1,compania=telcel,producto=Producto.objects.filter(barcode='TELInt500')[0])
+
+
+Plan.objects.create(plan='MINT0010',description='Internet 1 dias 35MB + 1GB WA $10',monto=10,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV0210')[0])
+Plan.objects.create(plan='MINT0030',description='Internet 3 dias 100 MB + 1GB WA TW y FB. $30.00',monto=30,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV0230')[0])
+Plan.objects.create(plan='MINT0060',description='Internet 7 dias 200 MB + 1GB WA TW y FB. $60.00',monto=60,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV0260')[0])
+Plan.objects.create(plan='MINT0080',description='Internet 15 dias 450 MB + 1GB WA TW y FB. $80.00',monto=80,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV0280')[0])
+Plan.objects.create(plan='MINT0120',description='Internet 21 dias 750 MB + 1GB WA TW y FB. $120.00',monto=120,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV02120')[0])
+Plan.objects.create(plan='MINT0200',description='Internet 30 dias 1.5GB + 1GB WA TW y FB. $200.00',monto=200,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV02200')[0])
+Plan.objects.create(plan='MINT0300',description='Internet 30 dias 3GB + 1GB WA TW y FB. $300.00',monto=300,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV02300')[0])
+Plan.objects.create(plan='002001000010INT',description='Internet 1 dia 40MB + Navegacion libre. $10.00',monto=10,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV0310')[0])
+Plan.objects.create(plan='002001000030INT',description='Internet 3 Dia 140MB + Navegacion libre. $30.00',monto=30,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV0330')[0])
+Plan.objects.create(plan='002001000060INT',description='Internet 7 Dias 300MB + Navegacion libre. $60.00',monto=60,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV0360')[0])
+Plan.objects.create(plan='002001000080INT',description='Internet 15 Dias 600MB + Navegacion libre $80.00',monto=80,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV0380')[0])
+Plan.objects.create(plan='002001000120INT',description='Internet 21 Dias 1GB + Navegacion libre. $120.00',monto=120,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV03120')[0])
+Plan.objects.create(plan='002001000200INT',description='Internet 30 Dias 2GB + Navegacion libre. $200.00',monto=200,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV03200')[0])
+Plan.objects.create(plan='002001000300INT',description='Internet 30 Dias 4GB + Navegacion libre. $300.00',monto=300,tipoplan=1,compania=movistar,producto=Producto.objects.filter(barcode='MOV03300')[0])
+
+
+
+
+
