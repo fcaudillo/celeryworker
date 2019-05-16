@@ -1,6 +1,6 @@
 from celery import Celery
 import os
-from recargasyservicios import recargaCelular
+from recargasyservicios import recargaCelular, saldo
 import json
 
 os.environ.setdefault('FORKED_BY_MULTIPROCESSING', '1')
@@ -21,5 +21,11 @@ def recarga(compania,plan,numero,monto):
   print ("1..respuesta final desde tarea")
   print (result)
   jsonString = json.dumps(result)
+  return jsonString
+  
+@app.task
+def consultaSaldo():
+  result = saldo('Demo','RS1234').to_blocking().first() 
+  jsonString = json.dumps({'saldo': result })
   return jsonString
   
