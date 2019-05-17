@@ -11,6 +11,8 @@ def saldo(usuario, password):
     try:
        ini = datetime.today()
        resp = client.service.GetBalance(usuario,password)
+       print ("obtener balance " + usuario + " - " + password)
+       print (resp)
        fin = datetime.today()
        delta = fin - ini
        print (ini.strftime('Inicio: %H:%M:%S Tiempo de ejecucion : ') + str(delta.seconds) +   ' segundos -  GetBalance')

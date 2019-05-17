@@ -26,6 +26,6 @@ def recarga(compania,plan,numero,monto):
 @app.task
 def consultaSaldo():
   result = saldo('Demo','RS1234').to_blocking().first() 
-  jsonString = json.dumps({'saldo': result })
+  jsonString = json.dumps({"saldo": result })
   return jsonString
   
