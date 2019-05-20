@@ -114,7 +114,7 @@ def verifyRequestId (id, usuario, password, sku_code, celular, monto):
 def recargaCelular (usuario, password, sku_code, celular, monto):
   print ("****2. Modificando para ver comportamiento de tlapape si requiere reinicio cuando se modifica celeryworker")
   #obs = Observable.from_(requestId(usuario,password) ).flat_map (lambda id :  Observable.from_future(recargaTAE (id, usuario, password, sku_code, celular, monto)))
-  obs = requestId(usuario,password).flat_map (lambda id : verifyRequestId(id, usuario, password, sku_code, celular, monto) ).on_error_resume_next(lambda err : Observable.just (err.args[0] )  )
+  obs = requestId(usuario,password).flat_map (lambda id : verifyRequestId(id, usuario, password, sku_code, celular, monto) ).on_error_resume_next(lambda err : Observable.just (err.args[0] if err is not None else "Vacio" )  )
   return obs 
 
   

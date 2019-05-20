@@ -1,0 +1,14 @@
+
+from precios.models  import Configuracion
+
+Configuracion.objects.all().delete()
+Configuracion.objects.create(clave="CLIENTE_NOMBRE",valor="Fantasy")
+Configuracion.objects.create(clave="CLIENTE_GIRO", valor="Tlapaleria y Papeleria")
+Configuracion.objects.create(clave="CLIENTE_DIRECCION",valor="Lago wetter 55. Col. Agua Azul")
+Configuracion.objects.create(clave="TICKET_PIE",valor='"Gracias por su compra"')
+Configuracion.objects.create(clave="TAE_USUARIO",valor="Demo")
+Configuracion.objects.create(clave="TAE_PASSWORD",valor="RS1234")
+
+
+lista = list(Configuracion.objects.all())
+configuracion = dict((a.clave,a.valor) for a in lista)

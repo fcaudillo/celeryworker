@@ -10,12 +10,12 @@ task_default_exchange_type = 'direct'
 #broker_url = 'amqp://guest@rabbitmq:5672//'
 
 
-#broker_url = 'amqp://%s:%s@rabbitmq:5672//' % (os.environ['USUARIO_MQ'],os.environ['PASSWORD_MQ'])
+broker_url = 'amqp://%s:%s@rabbitmq:5672//' % (os.environ['USUARIO_MQ'],os.environ['PASSWORD_MQ'])
 
 #if os.environ['AMBIENTE'] == 'DEV':
 #   broker_url = 'amqp://%s:%s@localhost:5672//' % (os.environ['USUARIO_MQ'],os.environ['PASSWORD_MQ'])
 
-broker_url = 'amqp://%s:%s@localhost:5672//' % (os.environ['USUARIO_MQ'],os.environ['PASSWORD_MQ'])
+#broker_url = 'amqp://%s:%s@localhost:5672//' % (os.environ['USUARIO_MQ'],os.environ['PASSWORD_MQ'])
 
 # List of modules to import when the Celery worker starts.
 imports = ('tasks',)
